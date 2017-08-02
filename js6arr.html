@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>배열 연습</h2>
+<script type="text/javascript">
+aa = new Array(3);	//배열 선언
+aa[0] = 10;
+aa[1] = 20.5;
+aa[2] = "결과확인:";
+aa[3] = 1;	//자동 확장
+
+document.write(aa[2] + (aa[0] + aa[1]));
+document.write("<br>크기 : " + aa.length);
+
+document.write("<br>");
+bb = new Array(10,20,30);
+for(i = 0; i < bb.length; i++){
+	document.write("i:" + bb[i] + " ");
+}
+document.write("<br>");
+for(i in bb){
+	document.write("i:" + bb[i] + " ");
+}
+document.write("<br>");
+for(var i in bb){
+	document.write("i:" + bb[i] + " ");
+}
+
+document.write("<br>");
+var animal = ["강아지", "망아지", "송아지"];
+for(var i in animal){
+	document.write(animal[i] + " ");
+}
+</script>
+</body>
+</html>
