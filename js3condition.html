@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+조건 판단문 연습<br>
+<script type="text/javascript">
+var irum = 'tom';
+if(irum === 'tom'){
+	document.write("맞아");
+	document.write("그거야");
+}else
+	document.write("틀려");
+	
+document.write("<br>");
+
+var avg = 88;
+if(avg >= 90)
+	document.write("<b style = 'font-size:24px'>수<b>");
+else if(avg >= 80)
+	document.write("<b style = 'font-size:20px'>우<b>");
+else 
+	document.write("<b style = 'font-size:10px'>기타<b>");
+	
+document.write("<br>");
+var code = prompt("코드 입력", "a");
+switch(code){
+case "a": document.write("Good"); break;
+case "b" : 
+case "c" : document.write("Nice"); break;
+default: document.write("etc");
+}
+</script>
+</body>
+</html>
