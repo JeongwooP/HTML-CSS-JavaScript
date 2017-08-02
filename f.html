@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+게시판 글 작성<p/>
+<form action = "board.jsp" method="get">
+<table>
+ <tr>
+ 	<td>이름:</td>
+ 	<td><input type = "text" name = "name" size="10"> </td>
+ </tr>
+ <tr>
+ 	<td>제목:</td>
+ 	<td><input type = "text" name="title" size="58"></td>
+ </tr>
+ <tr>
+ 	<td>내용</td>
+ 	<td>
+ 		<textarea rows = "5" cols="60" name = "content"></textarea>
+ 	</td>
+ </tr>
+<tr>
+	
+	<td colspan="2" align= "center">
+	<input type="submit" value="전송">
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	입력 양식
+	<br>
+	<form action="#">
+		1. 이름 : <input type="text" name="irum" value="tom"><br>
+		2. 아이디 : <input type="text" name="id"><br> 3. 비번 : <input
+			type="password" name="pwd"><br> 4. 내용 :
+		<textarea rows="5" cols="30" name="content"></textarea>
+		<br> 5. 성별: <input type="radio" name="gen" value="m"
+			checked="checked">남자 <input type="radio" name="gen" value="f">여자<br>
+		6. 과목 <input type="checkbox" name="gwa" value="c">c언어&nbsp;&nbsp;
+		<input type="checkbox" name="gwa" value="java">자바&nbsp;&nbsp;
+		<input type="checkbox" name="gwa" value="python">파이썬<br>
+		7. 지역 <select name="site">
+			<!-- multiple="multiple" -->
+			<option value="c" selected="selected">종로</option>
+			<option value="k">강남</option>
+			<option value="kb">강북</option>
+		</select><br> 8. 숨김 <input type="hidden" name="kbs" value="9"> <br>
+		<br> <input type="submit" value="서버전송"> <input
+			type="reset" value="입력취소">
+	</form>
+</body>
+</html>
