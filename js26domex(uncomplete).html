@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	
+	document.getElementById("sel").onclick = function(){
+	var num = frm.sel.options[frm.sel.selectedIndex].value;
+
+ 	comment = new Array(new Array(3), new Array(3));
+ 
+	if(num == '2단'){
+		number = num;
+		var mul = 1;
+		
+		for(i = 0; i <3;i++){
+			for(j = 0; j < 3; j++){
+					comment[i][j] = "2 * " + mul + "=" + (mul*2) ;
+					mul++;
+			}
+		}
+	} else if(num == '3단'){
+		number = num;
+		var mul = 1;
+		
+		for(i = 0; i <3;i++){
+			for(j = 0; j < 3; j++){
+					comment[i][j] = "2 * " + mul + "=" + (mul*2) ;
+					mul++;
+			}
+		} 
+	}  else if(num =='4단'){
+		number = num;
+		var mul = 1;
+		
+		for(i = 0; i <3;i++){
+			for(j = 0; j < 3; j++){
+					comment[i][j] = "2 * " + mul + "=" + (mul*2) ;
+					mul++;
+			}
+		}
+	} else if(num == '5단'){
+		number = num;
+		var mul = 1;
+		
+		for(i = 0; i <3;i++){
+			for(j = 0; j < 3; j++){
+					comment[i][j] = "2 * " + mul + "=" + (mul*2) ;
+					mul++;
+			}
+		}
+	} else if(num == '6단'){
+		number = num;
+		var mul = 1;
+		
+		for(i = 0; i <3;i++){
+			for(j = 0; j < 3; j++){
+					comment[i][j] = "2 * " + mul + "=" + (mul*2) ;
+					mul++;
+			}
+		}
+	} else if(num == '7딘'){
+		number = num;
+		var mul = 1;
+		
+		for(i = 0; i <3;i++){
+			for(j = 0; j < 3; j++){
+					comment[i][j] = "2 * " + mul + "=" + (mul*2) ;
+					mul++;
+			}
+		}
+	} else if(num == '8단'){
+		number = num;
+		var mul = 1;
+		
+		for(i = 0; i <3;i++){
+			for(j = 0; j < 3; j++){
+					comment[i][j] = "2 * " + mul + "=" + (mul*2) ;
+					mul++;
+			}
+		}
+	} else if(num == '9단'){
+		number = num;
+		var mul = 1;
+		
+		for(i = 0; i <3;i++){
+			for(j = 0; j < 3; j++){
+					comment[i][j] = "2 * " + mul + " = " + (mul*2) ;
+					mul++;
+			}
+		}
+	}
+	
+	addRow(number, comment);
+	document.getElementById("myTable").setAttribute("border", "1");
+	
+	}
+	var h = document.createElement("h2");
+	var t = document.createTextNode("결과");
+	h.appendChild(t);
+		document.getElementById("header").appendChild(h);
+}
+function addRow(number, comment){
+	//tr 작업
+	var row = document.createElement("tr");
+	var col = addColumn(number);
+	row.appendChild(col);	//<tr><td>볼펜</td></tr>
+	for(i = 0; i < 3 ; i++){
+		for(j = 0; j < 3; j++){
+			var col = addColumn(comment[i][j]);
+			row.appendChild(col);	
+		}
+	}
+	
+	document.getElementById("myTbody").appendChild(row);	
+}
+function addColumn(data){
+	//td 작업
+	var column = document.createElement("td");
+	var text = document.createTextNode(data);
+	column.appendChild(text);	//<td>data</td>
+	return column;
+}
+
+
+</script>
+</head>
+<body>
+<form action = "#" name = "frm">
+단:
+<select name="sel" id = "sel">
+	<option value=" ">선택</option>
+	<option value="2단">2단</option>
+	<option value="3단">3단</option>
+	<option value="4단">4단</option>
+	<option value="5단">5단</option>
+	<option value="6단">6단</option>
+	<option value="7단">7단</option>
+	<option value="8단">8단</option>
+	<option value="9단">9단</option>
+</select>
+</form>
+<br>
+<span id="header"></span>
+<table id = "myTable">
+	<tbody id="myTbody"></tbody>
+</table>
+</body>
+</html>
