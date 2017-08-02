@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	width: 70%;
+	margin-bottom: 10px;
+}
+
+table tr td {
+	padding: 5px 10px;
+	border-top: 1px solid #abc;
+	border-bottom: 1px dashed blue;
+}
+
+input {
+	border: 5px double rgb(255, 0, 0);
+	background-color: rgb(100%, 100%, 0%)
+}
+
+input.btnOk {
+	border: 1px solid black;
+	background-color: olive;
+}
+/* 동적 선택자 */
+a:LINK {
+	text-decoration: none;
+	
+}
+a:VISITED{
+	color: red;
+}
+a:ACTIVE {
+	color: yellow; font-family: 궁서;
+}
+a:HOVER {
+	color: orange; font-size: 30px;
+}
+input:FOCUS{
+	background-color: #aabbcc;
+}
+i, strong{
+	color: #cba;
+}
+b{
+	font-size: 8px;
+}
+div b{ /* div tag 내에 있는... */
+	font-size: 16px;
+}
+div > b{ /* div tag 바로 안에 있는 ...*/
+	font-size:  20px; color:orange;
+}
+div span b{
+	font-size:  24px; color: blue;
+}
+div b.hi{
+	font-size:  30px; color:red;
+}
+div b#hi{
+	font-size:  34px; color:green;
+}
+div#pic{
+	height: 150px;
+	background-color: yellow;
+	background-image: url('image/book.png');
+}
+</style>
+</head>
+<body>
+	* 입력 양식 *
+	<br>
+	<form action="">
+		<table>
+			<tr>
+				<td>id</td>
+				<td><input type="text" name="id">
+			</tr>
+			<tr>
+				<td>pwd</td>
+				<td><input type="text" name="pwd">
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center;"><input
+					type="submit" class="btnOk"> <i class="btnOk">하하하</i></td>
+			</tr>
+		</table>
+		<br> <a herf="http://www.naver.com">네이버</a><br> <a
+			herf="http://www.daum.net">다음</a><br>
+	<i>i tag</i>
+	<strong>strong tag</strong>
+	<br>
+	<b>b tag</b>
+	<div><b>div-b tag</b></div>
+	<div><span><b>div-span-b tag</b></span></div>
+	<div><b id="hi">div-b-id:hi tag</b></div>
+	<div><b class="hi">div-class:hi b tag</b></div>
+	<div id="pic">배경이미지</div>
+	
+	</form>
+</body>
+</html>
