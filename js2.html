@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+변수와 연산자<br>
+<script type="text/javascript">
+var aa;    //변수 선언  /* 여러 줄 주석 */
+aa = 100; 
+var bb = 200.5; 
+cc = 300
+dd = "결과는 ";
+document.write(dd, "aa:", aa, ", bb:", bb, ", cc:", cc);
+ee = false;
+document.write("<br>ee: ", ee);
+ff = null;
+gg = undefined;
+document.write('<br>', ff, ' ', gg);
+document.write('<br>', "강남구" + "역삼동" + 123 + "번지");
+{
+ var v1 = 1;
+ {
+	 var v2 = 2;
+	 {
+		 var v3 = 3;
+	 }
+ }
+}
+document.write("<br>", v1, v2, v3);
+</script>
+<hr>
+<script type="text/javascript">
+var x =5, y= 2;
+var xx = "x의 값은 ";
+var yy = "y의 값은";
+document.write("<br>", xx, x, yy, y);
+document.write("<br>산술연산 : ", x + y);
+document.write("<br>나누기 : ", x / y, '나머지 연산 : ', x%y);
+document.write("<br>", x > y, " ", x<= y, " ", x==y, " ", x != y);
+document.write("<br>", x = x + y, " ", ++x, " ", x += 1);
+document.write("<br>삼항연산", (x>y)?1000:2000);
+re = 50 > 20 && y == 2;	 //  ||
+document.write("<br>논리 연산 :", re);
+document.write("<br>", typeof(1), typeof(x), typeof(1.5), typeof(true));
+document.write("<br>", typeof('문자'), typeof(null), typeof(undefined));
+
+re1 = 5 == "5"; //!= 형변환 후 비교
+re2 = 5 === "5"; //!==	형변환 없이 비교
+	document.write("<br>", re1, ' ' ,re2);
+	
+re3 = 'c' + 'a' + 't' === 'cat';
+re4 = 'cat'.toUpperCase() === 'cat'	//대소문자 구분
+document.write("<br>", re3, ' ', re4);
+
+</script>
+</body>
+</html>
