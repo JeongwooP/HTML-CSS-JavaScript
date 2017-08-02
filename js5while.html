@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+** while 반복 **<br>
+<script type="text/javascript">
+var a = 0;
+while(a <= 5){
+	a++;
+	if(a == 2) continue;			//이것 때문에?
+	if(a == 4) break;
+	document.write("while loop");	//a++이 왜 여기에 오면 안되나?
+}
+document.write("<br>반복문 수행 후 a:" + a);
+
+document.write("<br>");
+var b= 10;
+do{
+	document.write("최소 1회 수행");
+	b++;
+}while(b <= 5);
+</script>
+</body>
+</html>
