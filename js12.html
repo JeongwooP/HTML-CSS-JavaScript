@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>js의 내장 대화상자 연습</h2>
+<script type="text/javascript">
+/*
+var irum = "한국인";
+var tel = "111-1111";
+alert("이름은 " + irum + "\n전화는" + tel);	//메세지창
+document.write("<br>alert 수행 후 계속");
+console.log("alert 수행 후 계속");
+console.log("이름은" + irum + "\n전화는" + tel);
+
+ var re = confirm("계속할까요?\n버튼 선택");	//선택창
+document.write("<br>선택한 값은 " + re);
+ if(re == false) window.close();
+ 
+ var juso = prompt("사는 곳 입력:","");
+document.write("<br>사는 곳은 "+ juso);
+*/
+var str = "강남구 역삼동 123";
+var datas = str.split(' ');
+console.log(datas[0],"는", datas[1], datas[2]);
+
+//문제: prompt()로 수식을 입력받아 disp(su1, op, su2) 함수 호출 후 사칙연산 결과 출력
+ var math = prompt("수식 입력: ", "");
+ var maths = math.split(' ');
+ 
+ function disp(su1, op, su2){
+	var result = "";
+	su11 = parseFloat(su1);
+	su22 = parseFloat(su2);
+	 switch (op){
+ 	case "+" : result = su11 + su22; break;
+ 	case "-" : result = su11 - su22; break;
+ 	case "*" : result = su11 * su22; break;
+ 	case "/" : result = su11 / su22; break;
+ 	default :  alert("다시 입력하시오"); 
+ 	}
+	 //result = eval(su1 + op + su2);
+	 return result;
+ }
+ 
+var rslt =  disp(maths[0], maths[1], maths[2]);
+document.write(rslt);
+</script>
+</body>
+</html>

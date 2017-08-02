@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function func1(){
+	//alert("1");
+	//alert(document.getElementById("test1").innerHTML);
+	var tag1 = "이름 : <input type = 'text' name = 'irum'/>";
+	var tag2 = "나이 : <input type = 'text' name = 'nai'/>";
+	document.getElementById("test1").innerHTML = tag1;
+	document.getElementById("test2").innerHTML = tag2;
+}
+function func2(){
+	//alert("2");
+	//alert(document.getElementById("test1").innerText);
+	var t1 = "<b style='font-size:30px'>일반 메세지로 변경</b>";
+	var t2 = "<b style='font-size:30px'>너도 따라 변경</b>";
+	document.getElementById("test1").innerHTML = t1;
+	document.getElementById("test2").innerText = t2;
+}
+</script>
+</head>
+<body>
+수행 도중 태그 및 자료 변경	<br>
+<div id = "test1"><b>innerHTML은 현재화면 자료 수정 가능</b></div>
+<div id = "test2">안녕</div>
+<input type= "button" value="처리1" onclick="func1()">
+<input type= "button" value="처리2" onclick="func2()">
+</body>
+</html>

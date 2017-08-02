@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//객체 선언 방법
+window.onload = function(){
+	//1. new 연산자 사용
+	var obj1 = new Object();	//var obji1 = {};
+	obj1.irum = "홍길동";
+	obj1.nai = 22;
+	obj1.juso = "강남구 역삼1동";
+	obj1.getJuso = function(){
+		return obj1.juso;
+	}
+	console.log(typeof(obj1));
+	console.log(obj1.toString());
+	console.log(obj1);
+	var str1 = obj1.irum + "님의 나이는 " + obj1.nai + " 주소는 " + obj1.getJuso();
+	document.getElementById("disp1").innerHTML = str1;
+	
+	var obj2 = obj1;
+	var str2 = obj2.irum + "님의 나이는 " + obj2.nai + " 주소는 " + obj2.getJuso();
+	document.getElementById("disp2").innerHTML = str2;
+	 
+	
+	//2. literal 사용
+	var myObj = {
+			irum: "신기해",
+			nai: 33,
+			showNai:function(msg){
+				return this.nai + msg;
+			}
+	};
+	myObj.irum = "신선해";
+	
+	var str3 = myObj.irum + "님의 나이는 " + myObj.nai + " 메세지는 " + myObj.showNai("살");
+	document.getElementById("disp3").innerHTML = str3;
+	
+	//중첩 객체
+		var myObj2 = {
+			irum: "한가해",
+			nai: 26,
+			myObj3:{
+				irum:"박치기",
+				job:"프로그래머"
+			}
+	};
+		var str4 = myObj2.irum + "님의 나이는 " + myObj2.nai + " 중첩객체는 " + myObj2.myObj3.irum + " " + myObj2.myObj3.job;
+		document.getElementById("disp4").innerHTML = str4;
+	
+	//3. 생성자 함수 사용
+	function Person(name){
+		this.name = name;
+		this.setName = function(newName){
+			this.name = newName
+		};
+	}
+	var p1 = new Person("손오공");
+	document.getElementById("disp5").innerHTML = p1.name;
+	var p2 = new Person();
+	document.getElementById("disp6").innerHTML = p2.name;
+	p2.setName("사오정");
+	document.getElementById("disp6").innerHTML = p2.name + " " + p2["name"];
+	
+	//배열
+	var arr1 = [];
+	var arr2 = new Array();
+	arr1.push("a");
+	arr1.push("b");
+	arr2.push("c");
+	arr2.push("d");
+	for(i in arr1){
+		console.log(arr1[i]);
+	}
+	for(j in arr2){
+		console.log(arr2[j]);
+	}
+}
+</script>
+</head>
+<body>
+객체 생성 후 처리<p/>
+<div id = "disp1"></div>
+<div id = "disp2"></div>
+<div id = "disp3"></div>
+<div id = "disp4"></div>
+<div id = "disp5"></div>
+<div id = "disp6"></div>
+</body>
+</html>

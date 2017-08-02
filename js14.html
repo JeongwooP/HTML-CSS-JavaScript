@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	td {text-align: center;}
+</style>
+
+
+<script type="text/javascript">
+ var myPic = new Array("image/book.png","image/back.png","image/mail.png");
+ var thisPic = 0;
+ 
+ function processPrev(){
+	 if(thisPic > 0){
+		 thisPic--;
+		 //console.log(document.myPicture.src);
+	 	document.myPicture.src = myPic[thisPic];
+	 }
+ }
+ 
+ function processNext(){
+	 if(thisPic < myPic.length){
+		 thisPic++;
+	 }
+ }
+ 
+</script>
+</head>
+<body>
+이벤트 처리<p/>
+<table>
+	<tr>
+		<td width="200" height = "200">
+			<img src = "image/back.png" name = "myPicture" width="100%">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<a href="javascript:processPrev()">이전</a>
+			<a href="javascript:processNext()">다음</a>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

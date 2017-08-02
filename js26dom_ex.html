@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구구단 예제</title>
+<script type="text/javascript">
+window.onload = function() {
+	document.getElementById("sel").onchange = function(){
+		var sel = document.getElementById("sel"); 
+		var selOption = sel.options[sel.selectedIndex].value;
+		showTable(selOption); 
+	}
+	
+	document.getElementById("clear").onclick = function(){
+		var re = document.getElementById("dom"); 
+		while(re.hasChildNodes()){
+			re.removeChild(re.childNodes[0]); 		
+		}
+	}
+}
+
+function showTable(sValue) { //table 생성
+	//<h3>*단</h3> 생성
+	var hdr = document.createElement("h5");
+	hdr.appendChild(document.createTextNode(sValue + "단")); 
+	//<table>*단 구구단(3칸씩)</table> 생성
+	var tbl = document.createElement("table"); 
+	for(var i = 0; i < 3; i++) {
+		var row = document.createElement("tr"); // <tr></tr> 생성 
+		for(var j = 1; j <= 3; j++) {// col 생성 
+			var col = addColumn(sValue + " x " + (i*j + j) + " = " + sValue*(i*j + j) + " "); 
+			row.appendChild(col); 
+		}
+		tbl.appendChild(row); 
+	}
+	
+	document.getElementById("dom").appendChild(hdr);
+	document.getElementById("dom").appendChild(tbl);	
+}
+
+function addColumn(data) {// td 작업
+	var column = document.createElement("td"); // <td></td>
+	column.appendChild(document.createTextNode(data)); // <td>data</td>
+	
+	return column;
+}
+</script>
+</head>
+<body>
+<form action='#' id='frm'>
+	<label> 단: </label>
+	<select name='sel' id='sel'>
+		<option value=''>선택</option>
+		<option value='1'>1단</option>
+		<option value='2'>2단</option>
+		<option value='3'>3단</option>	
+		<option value='4'>4단</option>	
+		<option value='5'>5단</option>	
+		<option value='6'>6단</option>	
+		<option value='7'>7단</option>
+		<option value='8'>8단</option>	
+		<option value='9'>9단</option>		
+	</select>
+	<input type='button' name='clear' id='clear' value='삭제'/>
+</form>
+<!-- DOM 동적 할당 영역 -->
+<p id='dom'/>
+</body>
+</html>

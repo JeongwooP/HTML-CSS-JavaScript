@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function func1(){
+	document.getElementById("show").innerText = "전통적인 이벤트 처리";
+}
+
+var a = 10;	//기본형 변수
+var b = {	//객체형 변수
+		funcNew1:function(){
+			document.getElementById("show").innerText = "b 객체 변수의 함수처럼 사용";
+		},
+		funcNew2:function(){
+			document.getElementById("show").innerText = "b 객체 변수의 멤버로 사용";
+			
+		}
+		
+}
+
+window.onload = function(){
+	exBtn1 = document.getElementById("btn1");
+	exBtn1.onclick = function(){	//이벤트 핸들러 장착
+		document.getElementById("show").innerHTML = "클릭1 선택";
+	}
+	
+	exBtn2 = document.getElementsByName("myBtn");
+	//alert(exBtn2.length);
+	exBtn2[0].onclick = function(){	//배열 항목에 이벤트 핸들러 장착
+		document.getElementById("show").innerHTML = "클릭2 누름";
+	}
+	
+	exBtn3 = document.getElementsByName("myBtn")[1];
+	exBtn3.onclick = function(){	//배열 항목에 이벤트 핸들러 장착
+		document.getElementById("show").innerHTML = "클릭3 처리";
+	}
+	/*
+	document.getElementById("btn4").onclick = function(){
+		document.getElementById("show").innerHTML = "클릭4 처리";
+		
+	}
+	*/
+	document.getElementById("btn4").onclick = abc;
+	
+	document.getElementById("btn5").addEventListener("click", func, false);	//진행 중 리스너 장착
+	//MS IE 8.0이하 attachEvent("onclick", func)
+}
+
+function abc(){
+	document.getElementById("show").innerHTML = "클릭4 처리 성공";
+}
+
+function func(){
+	document.getElementById("show").innerHTML = "클릭5 처리 진행 완료";
+	
+	document.getElementById("btn5").removeEventListener("click", func, false);
+}
+</script>
+</head>
+<body>
+** 이벤트 처리 **<br>
+<input type="button" value="버튼1" onclick="func1()"><br>
+<input type="button" value="버튼2" onclick="b.funcNew1()"><br>
+<input type="button" value="버튼3" onclick="b.funcNew2()"><br>
+<!-- 이벤트 분리 -->
+<input type="button" value="클릭1" id="btn1"><br>
+<input type="button" value="클릭2" id="btn2" name="myBtn"><br>
+<input type="button" value="클릭3" id="btn3" name="myBtn"><br>
+<input type="button" value="클릭4" id="btn4"><br>
+<input type="button" value="클릭5" id="btn5"><br>
+<hr/>
+<div id = "show"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#star{
+font-size: 30px;
+position: absolute;
+left: 0px;
+top: 100px;
+}
+</style>
+<script type="text/javascript">
+point = 0;
+
+function stepMove(){
+	point += 10;
+	star.style.left = point + "px";
+}
+</script>
+</head>
+<body>
+<input type="button" value="이동1" onclick="stepMove()">
+<p>
+<span id = "star">★</span>
+</body>
+</html>

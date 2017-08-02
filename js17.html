@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var contents = new Array();
+contents[0] = '네이버 방문 <a href="http://www.naver.com">네이버</a>';
+contents[1] = '다음 가기 <a href="http://www.daum.net">다음</a>에는 뭐가 있을까';
+contents[2] = '드라마 보기<a href="http://www.kbs.co.kr">kbs</a>방송';
+
+var tg;
+var currentMsg = 0;
+var count = 0;
+
+function changeContent(){
+	tg.style.clip = "rect(0px 0px auto 0px)"
+	tg.innerHTML = contents[currentMsg];
+	msg();
+}
+
+function msg(){
+	if(currentMsg === contents.length - 1){
+		currentMsg = 0;
+	}else
+		currentMsg++;
+	
+	setTimeout("changeContent()", 2000);
+}
+
+window.onload = function(){ //파일 전송이 자동 호출
+	//alert("aa");
+	tg = document.getElementById("target");
+	changeContent();
+}
+</script>
+</head>
+<body >
+js test<br>
+<span id = "target" style = "font=size: 20px; background-color: yellow"></span>
+</body>
+</html>

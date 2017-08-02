@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function func(){
+	//alert("성공");
+	var data = prompt("날짜 입력:","2017-7-31");
+	var arrData = data.split("-");
+	var y = arrData[0];
+	var m = arrData[1];
+	var d = arrData[2];
+	alert(y + "년" + m + "월" + d + "일");
+}
+</script>
+</head>
+<body>
+이벤트 연습1<p>
+<a href="javascript:func()">이벤트처리1</a>
+<br>
+<a href="javascript:;" onclick="func()">이벤트 처리2</a>
+<br>
+<button onclick="func()">이벤트 처리3</button>
+<br>
+<input type="button" onclick="func()" value="이벤트 처리4">
+</body>
+</html>

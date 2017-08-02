@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+function func(){
+	var name = "tom";
+	var no = 1;
+	function displayName(){
+		console.log(name + no);
+		no++;
+		}
+	displayName();
+	}
+func();
+func();
+console.log("");
+function makeFunc(){
+	var name = "james";
+	var no = 1;
+	function displayName(){
+		console.log(name + no);
+		no++;
+	}	
+	return displayName;	//이거 클로저(closure)
+}
+
+var my1 = makeFunc();
+my1();
+my1();
+
+console.log("");
+function makeAdd(arg1){
+	return function(arg2){
+		return arg1 + arg2;
+	};
+}
+
+var add1 = makeAdd(5);	//객체1
+console.log("5 + 10: " + add1(10));
+console.log("5 + 20: " + add1(20));
+
+var add2 = makeAdd(100);	//객체 2
+console.log("100 + 10: " + add2(10));
+</script>
+</body>
+</html>

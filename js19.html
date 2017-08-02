@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("colorW").onclick = function() {
+			document.bgColor = "white";
+		}
+		document.getElementById("colorG").onclick = function() {
+			document.bgColor = "#0f0";
+		}
+		document.getElementById("colorR").onclick = function() {
+			document.bgColor = "rgb(100%,0%,0%)";
+		}
+
+		document.getElementById("hi").onclick = function() {
+			document.getElementById("show").innerText = "안녕하세요";
+		}
+		document.getElementById("calc").ondblclick = function() {
+			var imsi = "연산 후 : " + (10 + 20);
+			document.getElementById("show").innerText = imsi;
+		}
+		document.getElementById("name").onmouseover = function() {
+			document.getElementById("show").innerText = "넌 홍길동!";
+		}
+		document.getElementById("name").onmouseout = function() {
+			document.getElementById("show").innerText = "";
+		}
+
+		document.getElementById("daum").onclick = function(event) {
+			jtbc();
+			//event.preventDefault();   //tag 고유기능 해제
+			return false; //위와 동일
+		}
+
+		var sdata = document.getElementById("sel");
+		//document.getElementById("sel").onclick = function(){
+		document.getElementById("sel").onchange = function() {
+			alert(sdata.value);
+		}
+
+		display();
+	}
+
+	function jtbc() {
+		alert("뉴스는 여기!");
+	}
+
+	var msg = "자바스크립트세상만세"
+	var i = 0;
+	function display() {
+		document.getElementById("disp").innerText = msg.charAt(i);
+		i++;
+		if (msg.length === i)
+			i = 0;
+		setTimeout("display()", 500);
+	}
+</script>
+</head>
+<body>
+	* 이벤트 경험 *
+	<p />
+	<input type="button" value="흰색" id="colorW">
+	<!--  
+<input type="button" value="녹색" id="colorG">
+<input type="button" value="적색" id="colorR">
+-->
+	<span id="colorG"> 녹 색 </span>&nbsp;&nbsp;
+	<b id="colorR" style="border: 1px solid blue;"> 빨강색 </b>
+	<hr>
+	<button id="hi">인사하기(click)</button>
+	<button id="calc">계산하기(dblclick)</button>
+	<button id="name">이름알기(mouseover)</button>
+	<br>
+	<a href="http://m.daum.net" id="daum">앵커 태그 클릭</a>
+	<br>
+	<br>
+	<select id="sel">
+		<option value="프로그래머">프로그래머</option>
+		<option value="프로게이머">프로게이머</option>
+		<option value="웹디자이너">웹디자이너</option>
+	</select>
+	<hr>
+	<div id="show">출력장소1</div>
+	<div id="disp" style="font-size: 20px;">출력장소2</div>
+</body>
+</html>
+
+
+

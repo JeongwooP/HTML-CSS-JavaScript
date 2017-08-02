@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function func1(){
+	document.write("난 func1이야");
+}
+
+function func2(a, b){
+	var c = a + b;
+	return c;
+}
+
+function func3(){	//argument(인자)가 선언되지 않은 경우
+	document.write("<br>arguments 개수 : " + arguments.length);
+	document.write("<br>arguments 값 : " + arguments[0] + arguments[1]);
+}
+
+function hap(){
+	var tot = 0;
+	for(i = 0; i < arguments.length; i++){
+		tot += arguments[i];
+	}
+	return tot;
+}
+
+function evenOdd(num){
+	var result = "";
+	if(num % 2 === 0)
+		result = "짝";
+	else
+		result = "홀";
+	return result;
+}
+</script>
+</head>
+<body>
+함수 연습<br>
+<script type="text/javascript">
+func1();
+document.write("<br>");
+my = func1;
+my();
+document.write("<br>");
+re = func2(10, 20);
+document.write("<br>re: " + re);
+re = func2();
+document.write("<br>re: " + re);
+re = func2("대한", "민국");
+document.write("<br>re: " + re);
+
+
+func3();
+func3(3, 4);
+func3(3, 4, 5);
+func3("월", " 요일");
+func3("월", 1);
+
+document.write("<br>" + hap(1, 2, 3));
+document.write("<br>" + hap(1, 2, 3, 4, 5));
+document.write("<br>" + hap("안녕", "반가워"));
+
+document.write("<br>" + evenOdd(1));
+document.write("<br>" + evenOdd(2));
+
+//익명함수 
+(function(){
+	document.write("<br>이름이 없는 함수");
+})(); //초가화 작업에 효과적
+
+var test = function(n1, n2){
+	document.write("<br>두수의 합은 " + (n1 + n2));
+}
+test(2, 3);
+var test2 = test;
+test(5, 4);
+
+document.write("<br>선언적 함수와 익명함수의 차이---");
+func4();
+function func4(){
+	document.write("<br>선언적 함수 호출(메모리에 계속 존재)");
+}
+func4();
+//kbs(); //에러 - 함수 선언 전 호출 불가
+var kbs = function(){
+	document.write("<br>선언적 함수 호출(휘발성, 단발성)");
+}
+kbs();
+kbs();
+
+document.write("<br>중첩함수 (내부함수)");
+function func5(){
+	document.write("<br>func5 처리");
+	function fu1(){
+		document.write("<br>fu1 수행");
+	}
+	function fu2(){
+		document.write("<br>fu2 수행");
+	}
+	fu1();
+	fu2();
+}
+func5();
+//fu1()
+
+document.write("<br>함수 반환---");
+function outer1(){
+	return function(){
+		document.write("<br>hello");
+	}
+}
+//outer1();
+outer1()();
+
+function outer2(arg){
+	var msg = "안녕  "+ arg; 
+	return function(){
+		document.write("<br>" + msg);
+	}  
+}
+outer2("한국인")();
+</script>
+</body>
+</html>

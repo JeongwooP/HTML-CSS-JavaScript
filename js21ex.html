@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+#btnRslt{
+position : relative;
+top : 0px;
+left : 70px;
+}
+#btnClear{
+position : relative;
+top : 0px;
+left : 70px;
+}
+span{
+position : relative;
+font-size : 20px;
+top : 0px;
+left : 90px;
+}
+#show{
+position : relative;
+font-size : 15px;
+top : 0px;
+left : 120px;
+}
+h1{
+position : relative;
+top : 0px;
+left : 110px;
+}
+div{
+position : relative;
+top : 0px;
+left : 30px;
+}
+
+</style>
+<meta charset="UTF-8">
+<title>간단 계산기</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnRslt").onclick = chkTot;
+	document.getElementById("btnClear").addEventListener("click", clsData, false);
+}
+
+function chkTot(){
+	var regExp1 = /[0-9]+/;
+	var regExp2 = /[0-9]+/;
+	if( !bdy.num1.value.match(regExp1)){
+		alert("숫자를 입력하시오.")
+		bdy.num1.focus();
+		clsData;
+		return;
+	}else if( !bdy.num1.value.match(regExp2)){
+		alert("숫자를 입력하시오.")
+		bdy.num2.focus();
+		clsData;
+		return;
+	}
+	
+	var a =parseFloat(bdy.num1.value);
+	var b =parseFloat(bdy.num2.value);
+	var rslt = 0;
+	if(bdy.oprt.value === "+"){
+		rslt = a + b;
+	}else if(bdy.oprt.value === "-"){
+		rslt = a - b;
+	}else if(bdy.oprt.value === "*"){
+		rslt = a * b;
+	}else if(bdy.oprt.value === "/"){
+		if(b !== 0 ){rslt = a / b;}
+		else {
+			alert("0이 아닌 값으로 나누십시오.");
+			rslt = "NaN"
+		}
+	}
+	
+	document.getElementById("show").innerText=rslt;
+}
+function clsData(){
+	bdy.num1.focus();
+	document.getElementById("show").innerText="";
+}
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<h1>간단 계산기</h1>
+<br>
+<form name = "bdy">
+<div class="form-group row">
+	<div class="form-group col-lg-1">숫 자1: <input type="text" name = "num1" class="form-control" /></div>
+	<div class="form-group col-lg-1">숫 자2: <input type="text" name = "num2" class="form-control" /></div>
+	</div><br>
+	<span>연 산 자: &ensp;<input type="radio" name = "oprt" value = "+" checked = "checked">+&ensp;
+	<input type="radio" name = "oprt" value = "-" >-&ensp;
+	<input type="radio" name = "oprt" value = "*" >*&ensp;
+	<input type="radio" name = "oprt" value = "/" >/</span><hr>
+	<input type = "button" id="btnRslt" value="결 과" class="btn btn-primary" >
+	<span id = "show">...</span><hr>
+	<input type= "reset" id="btnClear" value="지우개" class="btn btn-default btn-sm">
+</form>
+
+</body>
+</html>

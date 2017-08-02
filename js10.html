@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+a = 10; 	//전역변수
+var b = 20;	//전역변수 : 권장
+
+function func1(){
+	var c = 30;	//지역변수
+	d = 40;	//전역변수
+	document.write("<br>a:" + a + ", b:" + b);
+	document.write("<br>c:" + c + ", d:" + d);
+	
+	func2();
+	//func3();
+}
+function func2(){
+	document.write("<br>a:" + a + ", b:" + b);
+}
+function func3(){
+	document.write("<br>c:" + c + ", d:" + d);	//c
+}
+</script>
+</body>
+<script type="text/javascript">
+document.write("<br>a:" + a + ", b:" + b);
+func1();
+//document.write("<br>c:" + c);
+document.write("<br>d:" + d);
+</script>
+</html>
