@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+h1 {font-size: 50px; font-family: 궁서; color: red;}
+
+span{
+	font-family: 돋움;
+	color : #0000ff;
+}
+.c1{
+	color : orange; font-family: 궁서,돋움,serif,"Times New Roman"
+}
+#i1 {color : blue; font-style: italic; }
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+</style>
+
+<!-- External 방식 -->
+<link rel = "stylesheet" href="css/sample.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+** CSS 적용하기 ***<br>
+<span style="font-size: 30px; color: aqua;">인라인 방식</span>
+<br>
+<h1>인터널 방식</h1>
+<h2>안녕하세요</h2>
+<h1>반가워요</h1>
+<b class = "c1">서서히 날씨가</b>
+<p class = "c1">클래스 사용1</p>
+<h1 class = "c1">클래스 사용2</h1>
+<p id="i1">아이디 사용(id는 중복불가)</p>
+<div id="i2">아이디 사용</div>
+<hr>
+<form action = "#">
+<input type="submit" value = "전송 버튼">
+<input type="submit" value = "전송 버튼" class = "button">
+<input type="submit" value = "전송 버튼" class = "btn btn-primary">
+</form>
+</body>
+</html>
