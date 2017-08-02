@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//함수는 head tag에 선언 후 호출
+count = 0;
+function aa(){
+	count += 1;
+	//return;	//함수의 무조건 탈출
+	document.write(count + "번 수행<br>");
+}
+
+function bb(){
+	document.write("<br>함수 내에서 함수 호출");
+	cc(5);
+	
+	var re = cc(10);
+	document.write("<br>re : " + re);
+
+	dd();
+	dd(5, 10);
+	dd(5);
+	dd(5, 10, 15);
+}
+
+function cc(arg){	//인자가 있는 함수
+	var kk = arg + 10;
+	document.write("<br>kk: " + kk);
+	return kk;	//값을 반환
+}
+
+function dd(arg1, arg2){
+	document.write("<br>" + arg1 + " " + arg2);
+}
+
+function f1(){
+	document.write("안녕");
+	//return 1;
+}
+function f2(func){	//인자로 함수 사용
+	func();
+}
+function f3(){
+	//return f1();
+	return f1;	//반환값이 함수
+}
+function hi(){
+	f2(f1);	//실인자로 함수 전달
+	//f3();
+	imsi = f3();
+	imsi();
+	f3()();
+	
+}
+</script>
+</head>
+<body>
+나의 페이지 <p>
+<script type="text/javascript">
+aa();
+aa();
+bb();
+document.write("<hr>");
+mbc = f1;
+document.write(mbc);
+kbs = f1();
+document.write(kbs);
+document.write("<hr>");
+hi();
+</script>
+<br>프로그램 종료
+</body>
+</html>
