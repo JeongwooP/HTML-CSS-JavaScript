@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>달력</title>
+<script type="text/javascript">
+var year; // 각 버튼들의 동작에 따라 변수들의 값을 변경가능하도록 전역변수로 설정 
+var month;
+var day;
+window.onload = function () {
+	document.getElementById("btnShow").onclick = function () {
+		dateFunc(); //현재 날짜로 year, month, day 초기화.
+		func();
+	}
+	document.getElementById("btnPyear").onclick = function () {
+		if (year - 1 === 0){ // 서기 1년의 달력일 경우 0년으로 갈 수는 없다.
+			alert("서기 1년 이전은 지원하지 않습니다.");
+			return;
+		}
+		year--;
+		func();
+	}
+	document.getElementById("btnPmonth").onclick = function () {
+		month--;
+		if((month + 1) === 0){ //(month + 1) 이 이번 월
+			month = 11; //11+1 = 12월이므로 전년 12월이 된다.
+			year--;
+		}
+		func();
+	}
+	document.getElementById("btnNmonth").onclick = function () {
+		month++;
+		if(month +1 > 12){ //(month + 1) 이 이번 월
+			month = 0; // 0+1 = 1월이므로 다음년 1월이 된다.
+			year++;
+		}
+		func();
+	}
+	document.getElementById("btnNyear").onclick = function () {
+		year++;
+		func();
+	}
+}
+
+function dateFunc() { //현재 년,월,일을 구하는 역할을 분리
+	var now = new Date();
+	year = now.getFullYear();
+	month = now.getMonth();
+	day = now.getDate();
+	//alert(year + " " + (month + 1) + " " + day);
+}
+
+function func() {
+	//해당 달의 1일 무슨 요일?
+	var setDate = new Date(year, month, 1);
+	var firstDay = setDate.getDate();
+	//alert(firstDay);
+	var dayOfWeek = setDate.getDay(); //요일 반환
+	//alert(DayOfWeek); // 일:0 월:1 ~ 토:6
+	
+	//해당 달이 총 몇일인지 구해야함
+	var totalDays= new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+	if(year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+		totalDays[1] = 29; //2월 날 수 윤년 체크
+	}
+	makeCal(dayOfWeek, totalDays[month], year, month + 1, day);
+	//console.log(str); //str을 콘솔을 통해 출력하여 달력 출력을 위한 HTML부분 확인가능
+	document.getElementById("disp").innerHTML = str;
+	document.getElementById("etc").style.display = "";
+}
+
+var str = "";
+function makeCal(dayOfWeek, totalDays, year, month, day) {
+	str = "<table border ='1'>";
+	str += "<tr><th colspan='7' width='250'>" + year +"년 "+month+"월</th></tr>";
+	str += "<tr>"
+	var week = new Array("일","월","화","수","목",'금','토');
+	for(var i = 0; i < week.length; i++) {
+		str += "<th>" + week[i] + "</th>";
+	}
+	str += "</tr>" //년 월 요일 출력
+	
+	// 날 수 만큼 달력에 숫자를 출력
+	//이번 달은 몇주?
+	var week = Math.ceil((totalDays + dayOfWeek) /7);
+	//alert(week);
+	var no = 1;
+	var currentCell = 0;
+	for(var row = 0;row < week;row++){
+		str += "<tr style='text-align: center'>";
+		for(var col = 1; col <= 7; col++){
+			if(currentCell < dayOfWeek || no> totalDays) {
+				str += "<td>&nbsp;</td>";
+				currentCell++;
+			} else {
+				if(no === day) { //오늘 날짜의 배경을 노란색으로
+					str += "<td style='background-color:yellow'>" + no + "</td>";
+				} else if((currentCell + no)%7 === 0){ //토요일을 선택함
+					str += "<td style='color:blue'>" + no + "</td>";
+				} else if((currentCell + no)%7 === 1){ //일요일을 선택함(공휴일은 구현X)
+					str += "<td style='color:red'>" + no + "</td>";
+				} else {
+					str += "<td>" + no + "</td>";
+				}
+				no++;
+			}
+		}		
+		str += "<tr>";
+	}
+	str += "</table>";
+}
+</script>
+</head>
+<body>
+<input type ="button" value="달력보기" id="btnShow">
+<br><br>
+<div id="disp"></div><br>
+<div id="etc" style="display: none">
+	<button id="btnPyear">이전년도</button>
+	<button id="btnPmonth">이전  월</button>
+	<button id="btnNmonth">다음  월</button>
+	<button id="btnNyear">다음년도</button>
+</div>
+</body>
+</html>
